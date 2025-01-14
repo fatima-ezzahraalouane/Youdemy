@@ -18,3 +18,9 @@ CREATE TABLE usersite (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (id_role) REFERENCES role(id_role)
 );
+
+CREATE TABLE categorie (
+    id_categorie INT not null PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(100) NOT NULL UNIQUE,
+    image_url VARCHAR(250) NOT NULL
+);
