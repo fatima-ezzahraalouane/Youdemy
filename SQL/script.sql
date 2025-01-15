@@ -52,3 +52,12 @@ CREATE TABLE cours_tag (
     FOREIGN KEY (id_cours) REFERENCES cours(id_cours) ON DELETE CASCADE,
     FOREIGN KEY (id_tag) REFERENCES tag(id_tag) ON DELETE CASCADE
 );
+
+CREATE TABLE inscription (
+    id_inscription INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id_etudiant INT NOT NULL,
+    id_cours INT NOT NULL,
+    date_inscription TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_etudiant) REFERENCES usersite(id_usersite) ON DELETE CASCADE,
+    FOREIGN KEY (id_cours) REFERENCES cours(id_cours) ON DELETE CASCADE
+);
