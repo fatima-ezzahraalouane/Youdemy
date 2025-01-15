@@ -36,7 +36,7 @@ CREATE TABLE cours (
     description TEXT NOT null,
     image_url VARCHAR(250) NOT NULL,
     contenu TEXT, -- Lien vers une vidéo ou un document
-    id_enseignant INT NOT NULL, -- L'enseignant qui a créé le cours
+    id_usersite INT NOT NULL, -- L'enseignant qui a créé le cours
     id_categorie INT,
     date_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     statut ENUM('en_attente', 'publie', 'rejete') DEFAULT 'en_attente', -- Statut du cours
@@ -55,9 +55,9 @@ CREATE TABLE cours_tag (
 
 CREATE TABLE inscription (
     id_inscription INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    id_etudiant INT NOT NULL,
+    id_usersite INT NOT NULL,
     id_cours INT NOT NULL,
     date_inscription TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_etudiant) REFERENCES usersite(id_usersite) ON DELETE CASCADE,
+    FOREIGN KEY (id_usersite) REFERENCES usersite(id_usersite) ON DELETE CASCADE,
     FOREIGN KEY (id_cours) REFERENCES cours(id_cours) ON DELETE CASCADE
 );
