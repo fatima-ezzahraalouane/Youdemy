@@ -61,3 +61,5 @@ CREATE TABLE inscription (
     FOREIGN KEY (id_usersite) REFERENCES usersite(id_usersite) ON DELETE CASCADE,
     FOREIGN KEY (id_cours) REFERENCES cours(id_cours) ON DELETE CASCADE
 );
+
+-- Insertion
