@@ -29,3 +29,17 @@ CREATE TABLE tag (
     id_tag INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100) NOT NULL UNIQUE
 );
+
+CREATE TABLE cours (
+    id_cours INT NOT null AUTO_INCREMENT PRIMARY KEY,
+    titre VARCHAR(255) NOT NULL UNIQUE,
+    description TEXT NOT null,
+    image_url VARCHAR(250) NOT NULL,
+    contenu TEXT, -- Lien vers une vidéo ou un document
+    id_enseignant INT NOT NULL, -- L'enseignant qui a créé le cours
+    id_categorie INT,
+    date_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    statut ENUM('en_attente', 'publie', 'rejete') DEFAULT 'en_attente', -- Statut du cours
+    FOREIGN KEY (id_enseignant) REFERENCES usersite(id_usersite) ON DELETE CASCADE,
+    FOREIGN KEY (id_categorie) REFERENCES categorie(id_categorie) ON DELETE SET NULL
+);
